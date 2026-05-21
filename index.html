@@ -3,420 +3,1114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ResearchLift | Publication & PhD Thesis Support</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brandDarkBlue: '#0A2540',
-                        brandNavBlue: '#001A33',
-                        brandGold: '#D4AF37',
-                        brandGoldHover: '#B8962E',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    }
-                }
+    <title>ResearchLift | Premium PhD Services & Publication Growth</title>
+    <style>
+        /* --- DESIGN SYSTEM & CSS VARIABLES --- */
+        :root {
+            --primary: #0a2540;      /* Deep Navy Blue from logo */
+            --secondary: #d4af37;    /* Gold from logo arrow */
+            --whatsapp: #25d366;     /* WhatsApp Green */
+            --dark-text: #2d3748;
+            --light-bg: #f7fafc;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: var(--dark-text);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+
+        /* --- GLOBAL UTILITIES --- */
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 28px;
+            border-radius: 5px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary);
+            color: var(--primary);
+            border: 2px solid var(--secondary);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--white);
+        }
+
+        .btn-whatsapp {
+            background-color: var(--whatsapp);
+            color: var(--white);
+            border: 2px solid var(--whatsapp);
+        }
+
+        .btn-whatsapp:hover {
+            background-color: transparent;
+            color: var(--whatsapp);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--primary);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary);
+            margin: 15px auto 0 auto;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px auto;
+            color: #718096;
+            font-size: 1.1rem;
+        }
+
+        /* --- HEADER & NAVIGATION --- */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-placeholder {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-placeholder span {
+            color: var(--secondary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            align-items: center;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-cta {
+            background-color: var(--primary);
+            color: var(--white) !important;
+            padding: 10px 20px;
+            border-radius: 4px;
+        }
+
+        .nav-cta:hover {
+            background-color: var(--secondary);
+            color: var(--primary) !important;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #1a365d 100%);
+            color: var(--white);
+            padding: 110px 0 130px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero h1 span {
+            color: var(--secondary);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 850px;
+            margin: 0 auto 40px auto;
+            opacity: 0.9;
+        }
+
+        .hero-ctas {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* --- ABOUT US SECTION --- */
+        .about-section {
+            background-color: var(--white);
+        }
+
+        .about-wrapper {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-content h3 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .about-content p {
+            color: var(--dark-text);
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .about-highlights {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .about-stat {
+            background: var(--light-bg);
+            padding: 20px;
+            border-radius: 6px;
+            border-bottom: 3px solid var(--secondary);
+        }
+
+        .about-stat h4 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .about-stat p {
+            font-size: 0.9rem;
+            color: #4a5568;
+            margin: 0;
+        }
+
+        .about-visual {
+            background: linear-gradient(135deg, #1a365d 0%, var(--primary) 100%);
+            padding: 40px;
+            border-radius: 12px;
+            color: var(--white);
+            box-shadow: 0 10px 30px rgba(10,37,64,0.1);
+        }
+
+        .about-quote {
+            font-style: italic;
+            font-size: 1.1rem;
+            border-left: 4px solid var(--secondary);
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* --- VALUE PROPOSITION --- */
+        .features {
+            background-color: var(--light-bg);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: var(--transition);
+            border-top: 4px solid var(--primary);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        /* --- PHD SERVICES SECTION --- */
+        .phd-section {
+            background: #ffffff;
+        }
+
+        .phd-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .phd-card {
+            background: var(--light-bg);
+            border-radius: 8px;
+            padding: 35px;
+            border-left: 5px solid var(--secondary);
+            transition: var(--transition);
+        }
+
+        .phd-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        }
+
+        .phd-card h3 {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .phd-card p {
+            color: #4a5568;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .phd-steps {
+            list-style: none;
+        }
+
+        .phd-steps li {
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+            color: var(--dark-text);
+        }
+
+        .phd-steps li::before {
+            content: "→";
+            color: var(--secondary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* --- STANDARD JOURNAL SERVICES SECTION --- */
+        .services {
+            background-color: var(--light-bg);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        }
+
+        .service-header {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 25px;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .service-body {
+            padding: 30px;
+        }
+
+        .service-body ul {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .service-body ul li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 25px;
+            font-size: 0.95rem;
+        }
+
+        .service-body ul li::before {
+            content: "✓";
+            color: var(--secondary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* --- INDEXING ACCREDITATION BANNER --- */
+        .indexing-banner {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .indexing-banner h2 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+        }
+
+        .journal-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .journal-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px 30px;
+            border-radius: 4px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* --- CONTACT & LEAD FORM --- */
+        .contact {
+            background-color: var(--white);
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .info-details {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .info-box {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: var(--light-bg);
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .info-box-icon {
+            font-size: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .info-box h4 {
+            color: var(--primary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .info-box a {
+            color: var(--dark-text);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid #e2e8f0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e0;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .submit-btn {
+            width: 100%;
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 14px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .submit-btn:hover {
+            background-color: var(--secondary);
+            color: var(--primary);
+        }
+
+        /* --- TURNITIN POPUP MODAL STYLES (NEW) --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 37, 64, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-box {
+            background: var(--white);
+            width: 90%;
+            max-width: 550px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            position: relative;
+            transform: translateY(-30px);
+            transition: transform 0.4s ease;
+            border: 3px solid var(--secondary);
+        }
+
+        .modal-overlay.active .modal-box {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            background: var(--primary);
+            color: var(--white);
+            padding: 25px 30px;
+            text-align: center;
+        }
+
+        .modal-header h3 {
+            font-size: 1.6rem;
+            line-height: 1.3;
+            color: var(--secondary);
+        }
+
+        .modal-header .price-tag {
+            background: rgba(255, 255, 255, 0.15);
+            display: inline-block;
+            padding: 4px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-top: 10px;
+            color: var(--white);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .modal-body p {
+            color: var(--dark-text);
+            font-size: 1rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .modal-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .modal-feat-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .modal-feat-item span {
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+
+        .modal-footer {
+            text-align: center;
+        }
+
+        .modal-footer .btn-whatsapp {
+            width: 100%;
+            justify-content: center;
+            padding: 14px;
+            font-size: 1.1rem;
+        }
+
+        .close-modal-btn {
+            position: absolute;
+            top: 12px;
+            right: 15px;
+            background: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .close-modal-btn:hover {
+            color: var(--secondary);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--primary);
+            color: #a0aec0;
+            padding: 60px 0 20px 0;
+            border-top: 5px solid var(--secondary);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: #a0aec0;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+
+        .copyright-bar {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSIVE BREAKPOINTS --- */
+        @media (max-width: 992px) {
+            .about-wrapper {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
         }
-    </script>
-    <style>
-        html { scroll-behavior: smooth; }
-        .academic-grid {
-            background-image: radial-gradient(#d4af37 0.75px, transparent 0.75px);
-            background-size: 24px 24px;
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none; 
+            }
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .modal-features {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
-<body class="bg-slate-50 text-gray-800 font-sans antialiased">
+<body>
 
-    <div class="bg-brandNavBlue text-gray-300 text-xs py-2 px-4 border-b border-slate-800 hidden md:block">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="flex items-center space-x-6">
-                <span><i class="fas fa-envelope text-brandGold mr-2"></i>vineet@researchlift.in</span>
-                <span><i class="fas fa-phone-alt text-brandGold mr-2"></i>+91 9599737755</span>
-                <span><i class="fas fa-graduation-cap text-brandGold mr-2"></i>PhD & Peer-Review Experts</span>
+    <header>
+        <div class="container nav-container">
+            <div class="logo-area">
+                <div class="logo-placeholder">Research<span>Lift</span></div>
             </div>
-            <div class="flex items-center space-x-4">
-                <span class="text-gray-400">SCOPUS | Web of Science | UGC Care Support Hub</span>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#phd-services">PhD Services</a></li>
+                    <li><a href="#journal-services">Journal Support</a></li>
+                    <li><a href="#contact" class="nav-cta">Consultation</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>End-to-End <span>PhD Services</span> & Publication Growth</h1>
+            <p>From foundational PhD proposal synopses to domain-specific journal indexing. ResearchLift guides scholars and academicians through comprehensive, ethical, and structured pathways to successful academic completion.</p>
+            <div class="hero-ctas">
+                <a href="#contact" class="btn btn-primary">Submit Manuscript</a>
+                <a href="https://wa.me/919599737755?text=I%20want%20to%20join%20the%20ResearchLift%20WhatsApp%20Group" target="_blank" class="btn btn-whatsapp">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397 0 11.945 0c3.173.001 6.156 1.239 8.4 3.483 2.243 2.243 3.48 5.228 3.48 8.402-.004 6.554-5.342 11.902-11.89 11.902-2.01-.001-3.988-.51-5.734-1.482L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.743 1.451 5.4 0 9.786-4.381 9.788-9.775 0-2.613-1.018-5.07-2.868-6.92C16.405 2.06 13.945 1.04 11.938 1.04c-5.4 0-9.785 4.382-9.789 9.776-.001 1.63.463 3.221 1.342 4.61l-.994 3.635 3.72-.975z"/></svg>
+                    Join Our WhatsApp Group
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-wrapper">
+                <div class="about-content">
+                    <h2 style="color: var(--primary); font-size: 2.2rem; margin-bottom: 10px;">About ResearchLift</h2>
+                    <h3>Your Partner in Publication Growth</h3>
+                    <p>ResearchLift was founded with a singular, resolute vision: to transform the daunting, often complex journey of academic writing and journal indexing into a smooth, structured, and victorious milestone. We serve as a trusted cornerstone for PhD scholars, researchers, and global academicians who demand elite, ethical validation for their scientific intellectual property.</p>
+                    <p>We do not believe in short-cuts. Instead, our framework leverages highly specialized subject matter experts (SMEs), data scientists, and veteran peer-review panel evaluators. By combining deep domain writing precision with advanced statistical methodologies, we empower your findings to capture the attention of premium international index repositories seamlessly.</p>
+                    
+                    <div class="about-highlights">
+                        <div class="about-stat">
+                            <h4>100%</h4>
+                            <p>Ethical Peer Guidelines</p>
+                        </div>
+                        <div class="about-stat">
+                            <h4>Fast-Track</h4>
+                            <p>Journal Selection Models</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-visual">
+                    <div class="about-quote">
+                        "True research growth happens when rigorous academic intellect is matched with flawless structural execution."
+                    </div>
+                    <p style="font-size: 0.95rem; opacity: 0.85; line-height: 1.7;">Whether you are designing a preliminary PhD synopsis, mapping structural equation modeling (SEM) inside an analysis chapter, or rewriting structural gaps to satisfy strict Scopus reviewer remarks, ResearchLift stands alongside your trajectory from initial ideation to global print.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="why-choose-us" class="features">
+        <div class="container">
+            <h2 class="section-title">Why Academic Researchers Choose Us</h2>
+            <p class="section-subtitle">We build pillars of high-impact research capability that align seamlessly with global institutional parameters.</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Verified Originality</h3>
+                    <p>Rigorous verification metrics keeping structures robust and completely verified via premium checking ecosystems.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎓</div>
+                    <h3>PhD Domain Expertise</h3>
+                    <p>Mentorship from senior research scientists and seasoned university evaluators across distinct specialized faculties.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Advanced Empirical Analysis</h3>
+                    <p>Empowering analytical structures using high-end frameworks to map quantitative and qualitative metrics smoothly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="phd-services" class="phd-section">
+        <div class="container">
+            <h2 class="section-title">End-to-End PhD Lifecycle Support</h2>
+            <p class="section-subtitle">Comprehensive consulting tailored to your university guidelines, assisting you through every high-stakes milestone.</p>
+            
+            <div class="phd-grid">
+                <div class="phd-card">
+                    <h3><span>📝</span> Topic Selection & Synopsis</h3>
+                    <p>Developing a compelling, novel research baseline designed to pass rigorous institutional review board screenings easily.</p>
+                    <ul class="phd-steps">
+                        <li>Novel Research Gap Extraction</li>
+                        <li>Structured Problem Statements</li>
+                        <li>Aims, Objectives & Scope Formulation</li>
+                    </ul>
+                </div>
+
+                <div class="phd-card">
+                    <h3><span>📖</span> Exhaustive Literature Review</h3>
+                    <p>Systematic mapping of historical and contemporary literature from top global repositories to establish your niche.</p>
+                    <ul class="phd-steps">
+                        <li>Critical Analysis of High-Impact Papers</li>
+                        <li>Thematic and Chronological Structuring</li>
+                        <li>Synthesis Matrix Construction</li>
+                    </ul>
+                </div>
+
+                <div class="phd-card">
+                    <h3><span>📐</span> Research Methodology Design</h3>
+                    <p>Constructing empirical blueprints, validating sample variables, and ensuring conceptual frameworks match execution targets.</p>
+                    <ul class="phd-steps">
+                        <li>Quantitative / Qualitative Framework Design</li>
+                        <li>Hypothesis & Questionnaire Validation</li>
+                        <li>Pilot Study Coordination Modeling</li>
+                    </ul>
+                </div>
+
+                <div class="phd-card">
+                    <h3><span>🎓</span> Complete Thesis Writing & Editing</h3>
+                    <p>Assembling chapter configurations cleanly into unified formats under strict adherence to international styles.</p>
+                    <ul class="phd-steps">
+                        <li>Chapter 1 to Chapter 5 Alignment</li>
+                        <li>In-depth Discussion & Conclusion Synthesis</li>
+                        <li>APA, Harvard, IEEE, or MLA Citation Styling</li>
+                    </ul>
+                </div>
+
+                <div class="phd-card">
+                    <h3><span>🗣️</span> Viva-Voce & Defense Mentoring</h3>
+                    <p>Transforming complex text structures into confident presentations to address external editorial queries smoothly.</p>
+                    <ul class="phd-steps">
+                        <li>PPT Presentation Layout Optimization</li>
+                        <li>Mock Defense & Q&A Simulations</li>
+                        <li>Answering Reviewer Critiques & Deficiencies</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="journal-services" class="services">
+        <div class="container">
+            <h2 class="section-title">Journal Publication Tracks</h2>
+            <p class="section-subtitle">Accelerate your university milestones by publishing across highly reputable indexed international journals.</p>
+            <div class="services-grid">
+                
+                <div class="service-card">
+                    <div class="service-header">Journal Selection & Mapping</div>
+                    <div class="service-body">
+                        <ul>
+                            <li>Strategic Journal Alignment matching Paper Aims</li>
+                            <li>Targeting Fast-Track Peer Review Platforms</li>
+                            <li>Verifying authentic indexing (Non-Cloned/Predatory)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">Manuscript Editing & Refinement</div>
+                    <div class="service-body">
+                        <ul>
+                            <li>Substantive Linguistic Restructuring</li>
+                            <li>Academic Tone Correction & Line Polish</li>
+                            <li>Premium Plagiarism Paraphrasing (Turnitin Verifiable)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">Statistical Data Analysis</div>
+                    <div class="service-body">
+                        <ul>
+                            <li>Quantitative Analysis using SPSS, R, & SmartPLS</li>
+                            <li>Structural Equation Modeling (SEM) Execution</li>
+                            <li>APA-Compliant Graph & Table Production</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="journals" class="indexing-banner">
+        <div class="container">
+            <h2>Accelerated Pathways To Global Repositories</h2>
+            <div class="journal-grid">
+                <div class="journal-item">SCOPUS</div>
+                <div class="journal-item">WEB OF SCIENCE (WoS)</div>
+                <div class="journal-item">SCI</div>
+                <div class="journal-item">ABDC LIST</div>
+                <div class="journal-item">IEEE XPLORE</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                
+                <div class="contact-info">
+                    <h3>Connect With Our Research Consultants</h3>
+                    <p>Don't let formatting rejection lines, literature road-blocks, or complex analysis models halt your completion trajectory. Reach out to coordinate with expert academic strategists instantly.</p>
+                    <div class="info-details">
+                        <div class="info-box">
+                            <div class="info-box-icon">✉️</div>
+                            <div>
+                                <h4>Email Us Directly</h4>
+                                <a href="mailto:vineet@researchlift.in">vineet@researchlift.in</a>
+                            </div>
+                        </div>
+                        <div class="info-box">
+                            <div class="info-box-icon">📞</div>
+                            <div>
+                                <h4>Call / WhatsApp Helpline</h4>
+                                <a href="tel:+919599737755">+91 9599737755</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" required placeholder="Dr. / Scholar Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Academic Email ID</label>
+                            <input type="email" id="email" required placeholder="name@university.edu">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone / WhatsApp Number</label>
+                            <input type="tel" id="phone" required placeholder="Including country code">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Required Support Track</label>
+                            <select id="service">
+                                <option>Full PhD Consultation (Synopsis to Defense)</option>
+                                <option>PhD Thesis Chapter Formulation</option>
+                                <option>Scopus Journal Publication Support</option>
+                                <option>Statistical Methodology Analysis (SPSS/R)</option>
+                                <option>Manuscript Proofreading & Editing</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Describe Your Research Core</label>
+                            <textarea id="message" rows="4" placeholder="Briefly highlight your research domain, current chapter status, or university deadlines..."></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Submit Request & Schedule Call</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="modal-overlay" id="plagiarismModal">
+        <div class="modal-box">
+            <button class="close-modal-btn" onclick="closeModal()">&times;</button>
+            <div class="modal-header">
+                <h3>Get Accurate Turnitin Plagiarism Reports</h3>
+                <div class="price-tag">Starting at Just ₹150 — Delivered in 30 Mins or Less!</div>
+            </div>
+            <div class="modal-body">
+                <p>We offer fast, affordable reports using Turnitin plagiarism report starting at just ₹150. Get 100% non-repository, confidential results with express delivery in 30 minutes using our trusted Turnitin plagiarism detector. Turnitin plagiarism checking is available at a competitive price, ensuring that academic integrity is maintained without compromising on affordability. This service provides a reliable solution for individuals and researchers seeking effective plagiarism and AI detection.</p>
+                
+                <div class="modal-features">
+                    <div class="modal-feat-item"><span>✓</span> 100% Non-Repository</div>
+                    <div class="modal-feat-item"><span>✓</span> Delivered within 30 Mins</div>
+                    <div class="modal-feat-item"><span>✓</span> Includes AI Detection</div>
+                    <div class="modal-feat-item"><span>✓</span> Absolute Confidentiality</div>
+                </div>
+
+                <div class="modal-footer">
+                    <a href="https://wa.me/919599737755?text=Hello%20ResearchLift%2C%20I%20want%20to%20get%20a%20Turnitin%20Plagiarism%20Report%20for%20my%20document." target="_blank" class="btn btn-whatsapp">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397 0 11.945 0c3.173.001 6.156 1.239 8.4 3.483 2.243 2.243 3.48 5.228 3.48 8.402-.004 6.554-5.342 11.902-11.89 11.902-2.01-.001-3.988-.51-5.734-1.482L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.743 1.451 5.4 0 9.786-4.381 9.788-9.775 0-2.613-1.018-5.07-2.868-6.92C16.405 2.06 13.945 1.04 11.938 1.04c-5.4 0-9.785 4.382-9.789 9.776-.001 1.63.463 3.221 1.342 4.61l-.994 3.635 3.72-.975z"/></svg>
+                        Get Your Report on WhatsApp Now
+                    </a>
+                </div>
             </div>
         </div>
     </div>
 
-    <header class="bg-white shadow-sm sticky top-0 z-50 border-b border-slate-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
-            <div class="flex items-center space-x-3">
-                <img src="1.jpeg" alt="ResearchLift Logo" class="h-16 w-auto object-contain">
-            </div>
-
-            <nav class="hidden md:flex space-x-8 text-sm font-semibold text-brandDarkBlue tracking-wide">
-                <a href="#home" class="hover:text-brandGold transition-colors">Home</a>
-                <a href="#about" class="hover:text-brandGold transition-colors">About</a>
-                <a href="#services" class="hover:text-brandGold transition-colors">Journal Publications</a>
-                <a href="#thesis-services" class="text-brandDarkBlue border-b-2 border-brandGold pb-1 hover:text-brandGold transition-colors">PhD Thesis Services</a>
-                <a href="#indexing" class="hover:text-brandGold transition-colors">Indexing</a>
-                <a href="#contact" class="hover:text-brandGold transition-colors">Contact</a>
-            </nav>
-
-            <div class="hidden md:block">
-                <a href="#contact" class="bg-brandDarkBlue text-white text-sm font-bold px-6 py-3 rounded-md hover:bg-brandGold hover:text-brandDarkBlue transition-all duration-300 shadow">
-                    Submit Manuscript <i class="fas fa-paper-plane ml-2"></i>
-                </a>
-            </div>
-
-            <button id="mobile-menu-btn" class="md:hidden text-brandDarkBlue focus:outline-none">
-                <i class="fas fa-bars text-2xl"></i>
-            </button>
-        </div>
-
-        <div id="mobile-menu" class="hidden bg-white border-t border-gray-200 px-4 py-4 space-y-3 md:hidden">
-            <a href="#home" class="block text-brandDarkBlue font-medium hover:text-brandGold">Home</a>
-            <a href="#about" class="block text-brandDarkBlue font-medium hover:text-brandGold">About Us</a>
-            <a href="#services" class="block text-brandDarkBlue font-medium hover:text-brandGold">Journal Publications</a>
-            <a href="#thesis-services" class="block font-semibold text-brandGold">PhD Thesis Services</a>
-            <a href="#indexing" class="block text-brandDarkBlue font-medium hover:text-brandGold">Indexing</a>
-            <a href="#contact" class="block text-brandDarkBlue font-medium hover:text-brandGold">Contact</a>
-            <a href="https://wa.me/919351916190" target="_blank" class="block text-center bg-green-600 text-white font-bold py-2 rounded-md"><i class="fab fa-whatsapp mr-2"></i>Join WhatsApp Group</a>
-        </div>
-    </header>
-
-    <section id="home" class="relative bg-brandDarkBlue text-white py-20 lg:py-28 overflow-hidden">
-        <div class="absolute inset-0 opacity-5 academic-grid"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-                <span class="text-brandGold font-bold uppercase tracking-widest text-xs px-3 py-1 bg-white/5 rounded-full inline-block mb-4 border border-brandGold/20">Premier Academic Research & Thesis Consultants</span>
-                <h1 class="text-4xl sm:text-5xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-6">
-                    Accelerate Your Research Journey & <span class="text-brandGold">PhD Thesis Submission</span>
-                </h1>
-                <p class="text-slate-300 text-base mb-8 leading-relaxed max-w-xl">
-                    ResearchLift provides expert end-to-end guidance for high-impact journal publications (SCOPUS, WoS, PubMed) and comprehensive PhD Thesis writing support tailored to fulfill strict university metrics.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="https://wa.me/919351916190" target="_blank" class="bg-green-600 text-white font-bold px-6 py-4 rounded-md hover:bg-green-700 transition-all duration-300 shadow-lg flex items-center justify-center space-x-3">
-                        <i class="fab fa-whatsapp text-2xl"></i>
-                        <div class="text-left">
-                            <span class="block text-[10px] uppercase font-medium text-green-100 tracking-wider">Join Research Community</span>
-                            <span class="text-sm tracking-wide">Connect via WhatsApp Group</span>
-                        </div>
-                    </a>
-                    <a href="#thesis-services" class="bg-brandGold text-brandDarkBlue font-bold px-6 py-4 rounded-md hover:bg-white transition-all duration-300 shadow-lg flex items-center justify-center text-sm tracking-wide">
-                        Explore Thesis Writing Help
-                    </a>
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>ResearchLift</h3>
+                    <p>Dedicated to supporting global academic pioneers build optimized indexing trajectories through tailored editing, framing, and evaluation strategies.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home Base</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#phd-services">PhD Services</a></li>
+                        <li><a href="#journal-services">Journal Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Support Tracks</h3>
+                    <ul>
+                        <li>Synopsis Formulation</li>
+                        <li>Literature Synthesis</li>
+                        <li>Scopus Peer-Review</li>
+                        <li>Empirical Evaluation</li>
+                    </ul>
                 </div>
             </div>
-
-            <div class="bg-white/5 backdrop-blur-sm p-8 rounded-xl border border-white/10 grid grid-cols-2 gap-6">
-                <div class="p-6 bg-brandNavBlue/50 rounded-lg text-center border border-white/5">
-                    <h3 class="text-3xl font-bold text-brandGold mb-1">10,000+</h3>
-                    <p class="text-slate-400 text-xs font-medium uppercase tracking-wider">Papers Published</p>
-                </div>
-                <div class="p-6 bg-brandNavBlue/50 rounded-lg text-center border border-white/5">
-                    <h3 class="text-3xl font-bold text-brandGold mb-1">2,400+</h3>
-                    <p class="text-slate-400 text-xs font-medium uppercase tracking-wider">PhD Scholars Mentored</p>
-                </div>
-                <div class="p-6 bg-brandNavBlue/50 rounded-lg text-center border border-white/5">
-                    <h3 class="text-3xl font-bold text-brandGold mb-1">100%</h3>
-                    <p class="text-slate-400 text-xs font-medium uppercase tracking-wider">Plagiarism Free (Turnitin)</p>
-                </div>
-                <div class="p-6 bg-brandNavBlue/50 rounded-lg text-center border border-white/5">
-                    <h3 class="text-3xl font-bold text-brandGold mb-1">A+ Grade</h3>
-                    <p class="text-slate-400 text-xs font-medium uppercase tracking-wider">Editorial Standards</p>
-                </div>
+            <div class="copyright-bar">
+                <p>&copy; 2026 ResearchLift. All Rights Reserved. Provided under strict compliance matrices matching institutional peer guidelines.</p>
             </div>
-        </div>
-    </section>
-
-    <section id="indexing" class="bg-slate-100 py-8 border-b border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="text-[11px] uppercase tracking-widest text-slate-500 font-bold mb-4">Target Peer-Reviewed Databases Supported</p>
-            <div class="flex flex-wrap justify-center items-center gap-4 md:gap-8">
-                <span class="bg-white px-4 py-2 rounded shadow-sm text-xs font-bold text-brandDarkBlue border-l-2 border-brandGold">SCOPUS Indexed</span>
-                <span class="bg-white px-4 py-2 rounded shadow-sm text-xs font-bold text-brandDarkBlue border-l-2 border-brandGold">Web of Science (WoS)</span>
-                <span class="bg-white px-4 py-2 rounded shadow-sm text-xs font-bold text-brandDarkBlue border-l-2 border-brandGold">PubMed Indexed</span>
-                <span class="bg-white px-4 py-2 rounded shadow-sm text-xs font-bold text-brandDarkBlue border-l-2 border-brandGold">ABDC / UGC CARE List</span>
-            </div>
-        </div>
-    </section>
-
-    <section id="thesis-services" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-brandGold font-bold tracking-widest text-xs uppercase bg-amber-50 px-3 py-1 rounded-full border border-amber-200">End-to-End Assistance</span>
-                <h2 class="text-3xl font-extrabold text-brandDarkBlue sm:text-4xl mt-3">PhD Thesis & Research Support Services</h2>
-                <p class="text-slate-600 mt-4 text-sm sm:text-base">
-                    Writing a PhD thesis demands extensive domain expertise, methodological accuracy, and structured arguments. ResearchLift simplifies this complex path for scholars through standardized research methodologies.
-                </p>
-                <div class="w-16 h-1 bg-brandGold mx-auto mt-4"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="border border-slate-200 rounded-xl p-6 hover:shadow-xl transition-all duration-300 bg-slate-50/50">
-                    <div class="text-brandGold text-3xl font-bold mb-4">01</div>
-                    <h3 class="text-lg font-bold text-brandDarkBlue mb-2">Topic Selection & Formulation</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">
-                        Identification of critical research gaps in your specialized field. We formulate unique, scalable, and verifiable research questions acceptable to your university review board.
-                    </p>
-                </div>
-                <div class="border border-slate-200 rounded-xl p-6 hover:shadow-xl transition-all duration-300 bg-slate-50/50">
-                    <div class="text-brandGold text-3xl font-bold mb-4">02</div>
-                    <h3 class="text-lg font-bold text-brandDarkBlue mb-2">Research Proposal / Synopsis</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">
-                        Drafting highly detailed synopses outlining objectives, extensive literature frameworks, specific hypotheses, and planned computational or experimental methodologies.
-                    </p>
-                </div>
-                <div class="border border-slate-200 rounded-xl p-6 hover:shadow-xl transition-all duration-300 bg-slate-50/50">
-                    <div class="text-brandGold text-3xl font-bold mb-4">03</div>
-                    <h3 class="text-lg font-bold text-brandDarkBlue mb-2">Structured Chapterization</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">
-                        Rigorous documentation support covering accurate Introduction, Advanced Review of Literature, Detailed Materials & Methods, Research Findings, and Discussion matrices.
-                    </p>
-                </div>
-                <div class="border border-slate-200 rounded-xl p-6 hover:shadow-xl transition-all duration-300 bg-slate-50/50">
-                    <div class="text-brandGold text-3xl font-bold mb-4">04</div>
-                    <h3 class="text-lg font-bold text-brandDarkBlue mb-2">Data Analysis & Modeling</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">
-                        Statistical evaluation using advanced tools (SPSS, AMOS, MATLAB, Python, or R-programming) to generate mathematically solid charts, graphical trends, and regression results.
-                    </p>
-                </div>
-                <div class="border border-slate-200 rounded-xl p-6 hover:shadow-xl transition-all duration-300 bg-slate-50/50">
-                    <div class="text-brandGold text-3xl font-bold mb-4">05</div>
-                    <h3 class="text-lg font-bold text-brandDarkBlue mb-2">Proofreading & Editorial Alignment</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">
-                        Comprehensive evaluation for contextual logic flow, language refinement, and formatting rules based on APA, Harvard, IEEE, or customized university style-sheets.
-                    </p>
-                </div>
-                <div class="border border-slate-200 rounded-xl p-6 hover:shadow-xl transition-all duration-300 bg-slate-50/50">
-                    <div class="text-brandGold text-3xl font-bold mb-4">06</div>
-                    <h3 class="text-lg font-bold text-brandDarkBlue mb-2">Plagiarism Elimination (Turnitin)</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">
-                        Rigorous similarity validation and professional rewriting to bring matching scores comfortably below institutional limits, keeping authentic context fully intact.
-                    </p>
-                </div>
-            </div>
-
-            <div class="mt-16 p-8 bg-brandDarkBlue text-white rounded-2xl relative overflow-hidden shadow-lg">
-                <div class="absolute inset-0 opacity-5 academic-grid"></div>
-                <div class="relative z-10 flex flex-col md:flex-row justify-between items-center gap-6">
-                    <div>
-                        <h4 class="text-xl font-bold text-brandGold">Stuck at your RDC review or Synopsis correction phase?</h4>
-                        <p class="text-slate-300 text-xs sm:text-sm mt-1">Get immediate expert guidance from senior doctoral guides and analytical statisticians.</p>
-                    </div>
-                    <a href="https://wa.me/919351916190" target="_blank" class="bg-green-600 text-white font-bold py-3 px-6 rounded-lg text-sm hover:bg-green-700 transition-all whitespace-nowrap flex items-center">
-                        <i class="fab fa-whatsapp text-lg mr-2"></i> Discuss My Thesis Topic
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="services" class="py-20 bg-slate-50 border-t border-b border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="text-center mb-16">
-                <span class="text-brandGold font-bold tracking-widest text-xs uppercase">Scholarly Outlets Configuration</span>
-                <h2 class="text-3xl font-extrabold text-brandDarkBlue sm:text-4xl mt-2">Journal Publication Consultation</h2>
-                <div class="w-16 h-1 bg-brandGold mx-auto mt-4"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white rounded-xl shadow-sm p-8 border border-slate-200 flex flex-col justify-between hover:scale-[1.02] transition-all duration-300">
-                    <div>
-                        <div class="w-12 h-12 bg-brandDarkBlue text-brandGold rounded-lg flex items-center justify-center text-xl font-bold mb-6">
-                            <i class="fas fa-file-alt"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-brandDarkBlue mb-4">Scopus & WoS Guidance</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                            Complete assistance with navigating high-impact open-access and peer-reviewed journals. Includes formatting changes to pass technical checks smoothly.
-                        </p>
-                    </div>
-                    <a href="#contact" class="text-brandGold font-bold text-sm inline-flex items-center hover:text-brandDarkBlue">Inquire Framework <i class="fas fa-arrow-right ml-2"></i></a>
-                </div>
-
-                <div class="bg-white rounded-xl shadow-sm p-8 border border-slate-200 flex flex-col justify-between hover:scale-[1.02] transition-all duration-300">
-                    <div>
-                        <div class="w-12 h-12 bg-brandDarkBlue text-brandGold rounded-lg flex items-center justify-center text-xl font-bold mb-6">
-                            <i class="fas fa-book"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-brandDarkBlue mb-4">Edited Book Chapters</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                            Transform deep research notes into cohesive chapters for curated volumes. Includes custom cover art configurations and international ISBN code generation.
-                        </p>
-                    </div>
-                    <a href="#contact" class="text-brandGold font-bold text-sm inline-flex items-center hover:text-brandDarkBlue">Inquire Framework <i class="fas fa-arrow-right ml-2"></i></a>
-                </div>
-
-                <div class="bg-white rounded-xl shadow-sm p-8 border border-slate-200 flex flex-col justify-between hover:scale-[1.02] transition-all duration-300">
-                    <div>
-                        <div class="w-12 h-12 bg-brandDarkBlue text-brandGold rounded-lg flex items-center justify-center text-xl font-bold mb-6">
-                            <i class="fas fa-pen-nib"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-brandDarkBlue mb-4">Academic Review Support</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                            Ethical literature synthesis setups and structural optimization metrics. Ensures content strictly aligns with international publishing standards.
-                        </p>
-                    </div>
-                    <a href="#contact" class="text-brandGold font-bold text-sm inline-flex items-center hover:text-brandDarkBlue">Inquire Framework <i class="fas fa-arrow-right ml-2"></i></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="py-20 bg-white">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-extrabold text-brandDarkBlue sm:text-4xl">About ResearchLift</h2>
-                <div class="w-16 h-1 bg-brandGold mx-auto mt-4"></div>
-            </div>
-            
-            <div class="prose max-w-none text-slate-600 space-y-6 text-sm sm:text-base leading-relaxed">
-                <p>
-                    <strong>ResearchLift</strong> is a recognized publication consultancy dedicated to assisting researchers, PhD scholars, professors, and institutional bodies worldwide. We bridge the gap between rigorous research execution and elite target index placement.
-                </p>
-                <p>
-                    With continuous integration structures mapping out variables inside SCOPUS, Web of Science, PubMed, and UGC Care databases, we ensure your studies receive international visibility. Our network prioritizing data integrity guarantees all support criteria pass professional compliance frameworks effortlessly.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-20 bg-slate-900 text-white relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-12">
-            
-            <div class="flex flex-col justify-between">
-                <div>
-                    <h2 class="text-3xl font-extrabold text-white sm:text-4xl mb-4">Connect with an Advisor</h2>
-                    <p class="text-slate-400 mb-8 text-sm leading-relaxed">
-                        Have specific inquiries regarding journal selection metrics, database verification guidelines, or customized PhD thesis writing plans? Submit your specifications below for a prompt evaluation.
-                    </p>
-                    
-                    <div class="space-y-6">
-                        <div class="flex items-start space-x-4">
-                            <div class="w-10 h-10 bg-brandDarkBlue text-brandGold rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div>
-                                <h5 class="font-semibold text-slate-300">Official Correspondence</h5>
-                                <p class="text-slate-400 text-sm">vineet@researchlift.in</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-4">
-                            <div class="w-10 h-10 bg-brandDarkBlue text-brandGold rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                <i class="fas fa-phone-alt"></i>
-                            </div>
-                            <div>
-                                <h5 class="font-semibold text-slate-300">Scholars Helpline</h5>
-                                <p class="text-slate-400 text-sm">+91 9599737755</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-8 pt-6 border-t border-slate-800 text-xs text-slate-500">
-                    * Continuous processing ensures high-priority analytical tasks are logged in 1-2 hours.
-                </div>
-            </div>
-
-            <div class="bg-white text-gray-800 p-8 rounded-xl shadow-2xl">
-                <h3 class="text-xl font-bold text-brandDarkBlue mb-6">Submit Inquiry / Abstract Details</h3>
-                <form action="#" method="POST" class="space-y-4">
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Researcher Name *</label>
-                        <input type="text" required class="w-full px-4 py-2 border border-slate-300 rounded focus:outline-none focus:border-brandDarkBlue" placeholder="Dr. / Prof. / Scholar">
-                    </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Email Address *</label>
-                            <input type="email" required class="w-full px-4 py-2 border border-slate-300 rounded focus:outline-none focus:border-brandDarkBlue" placeholder="name@university.com">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Contact Number *</label>
-                            <input type="tel" required class="w-full px-4 py-2 border border-slate-300 rounded focus:outline-none focus:border-brandDarkBlue" placeholder="+91 ">
-                        </div>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Primary Support Required</label>
-                        <select class="w-full px-4 py-2 border border-slate-300 rounded focus:outline-none focus:border-brandDarkBlue bg-white text-sm">
-                            <option>PhD Thesis Writing Consultation</option>
-                            <option>Synopsis / Research Proposal Support</option>
-                            <option>Scopus Indexed Journal Placement</option>
-                            <option>Web of Science / PubMed Route</option>
-                            <option>Data Statistics & Analysis Modeling</option>
-                            <option>Plag & AI Report </option>
-        
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Research Abstract / Core Query *</label>
-                        <textarea required rows="4" class="w-full px-4 py-2 border border-slate-300 rounded focus:outline-none focus:border-brandDarkBlue text-sm" placeholder="Paste your draft abstract or description of your research challenge here..."></textarea>
-                    </div>
-                    <button type="submit" class="w-full bg-brandDarkBlue hover:bg-brandGold text-white hover:text-brandDarkBlue font-bold py-3 px-4 rounded transition-all duration-300 uppercase tracking-wider text-xs">
-                        Submit Research Request <i class="fas fa-arrow-right ml-2"></i>
-                    </button>
-                </form>
-            </div>
-
-        </div>
-    </section>
-
-    <footer class="bg-brandNavBlue text-slate-400 text-sm py-12 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-            <div class="space-y-4">
-                <h4 class="text-white font-bold text-md border-b-2 border-brandGold pb-2 inline-block">ResearchLift</h4>
-                <p class="text-xs leading-relaxed">
-                    Premium global academic partner providing scalable metrics, compliance checks, and publication solutions for advanced research.
-                </p>
-            </div>
-            <div>
-                <h4 class="text-white font-bold text-md border-b-2 border-brandGold pb-2 inline-block mb-4">Core Focus Areas</h4>
-                <ul class="space-y-2 text-xs">
-                    <li><a href="#thesis-services" class="hover:text-white transition-colors">PhD Thesis Structuring</a></li>
-                    <li><a href="#services" class="hover:text-white transition-colors">Journal Publication Portals</a></li>
-                    <li><a href="#thesis-services" class="hover:text-white transition-colors">Statistical Data Modeling</a></li>
-                    <li><a href="#indexing" class="hover:text-white transition-colors">Indexed Databases Directory</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-white font-bold text-md border-b-2 border-brandGold pb-2 inline-block mb-4">Policy Frameworks</h4>
-                <ul class="space-y-2 text-xs">
-                    <li><a href="#" class="hover:text-white transition-colors">Confidentiality Standards</a></li>
-                    <li><a href="#" class="hover:text-white transition-colors">Terms of Operations</a></li>
-                    <li><a href="#" class="hover:text-white transition-colors">Editorial Guidelines</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-white font-bold text-md border-b-2 border-brandGold pb-2 inline-block mb-4">Channels Access</h4>
-                <div class="flex space-x-3 text-lg">
-                    <a href="#" class="hover:text-brandGold text-slate-500"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="hover:text-brandGold text-slate-500"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://wa.me/919351916190" target="_blank" class="hover:text-brandGold text-slate-500"><i class="fab fa-whatsapp"></i></a>
-                </div>
-            </div>
-        </div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-6 border-t border-slate-800 text-center text-xs text-slate-500 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p>© 2026 ResearchLift Publications. All Rights Protected Universally.</p>
-            <p class="text-[10px]">Optimized cleanly with high accessibility standards for international scholars.</p>
         </div>
     </footer>
 
     <script>
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
+        // Wait for page to fully load, then launch modal after a 3-second delay
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                const modal = document.getElementById('plagiarismModal');
+                modal.classList.add('active');
+            }, 3000); 
+        });
 
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
-        
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.add('hidden');
-            });
-        });
+        // Function to safely close the pop-up
+        function closeModal() {
+            const modal = document.getElementById('plagiarismModal');
+            modal.classList.remove('active');
+        }
+
+        // Close modal if user clicks outside the content box wrapper
+        window.onclick = function(event) {
+            const modal = document.getElementById('plagiarismModal');
+            if (event.target == modal) {
+                modal.classList.remove('active');
+            }
+        }
     </script>
+
 </body>
 </html>

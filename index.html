@@ -3,22 +3,402 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hellopod</title>
+    <title>ResearchLift | Your Partner in Publication Growth</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandDarkBlue: '#0A2540',
+                        brandNavBlue: '#001A33',
+                        brandGold: '#D4AF37',
+                        brandGoldHover: '#B8962E',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        html, body {
-            margin: 0;
-            height: 100%;
-            overflow: hidden;
-        }
-        iframe {
-            width: 100%;
-            height: 100vh;
-            border: none;
-        }
+        html { scroll-behavior: smooth; }
     </style>
 </head>
-<body>
-    <iframe src="yourfile.pdf"></iframe>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+    <div class="bg-brandNavBlue text-gray-300 text-xs py-2 px-4 border-b border-gray-800 hidden md:block">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-6">
+                <span><i class="fas fa-envelope text-brandGold mr-2"></i>info@researchlift.com</span>
+                <span><i class="fas fa-phone-alt text-brandGold mr-2"></i>+91 9351916190</span>
+                <span><i class="fas fa-clock text-brandGold mr-2"></i>24/7 Support</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <span class="text-gray-400">Global Indexed Databases Support</span>
+            </div>
+        </div>
+    </div>
+
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="1.jpeg" alt="ResearchLift Logo" class="h-16 w-auto object-contain">
+            </div>
+
+            <nav class="hidden md:flex space-x-8 text-sm font-semibold text-brandDarkBlue tracking-wide">
+                <a href="#home" class="hover:text-brandGold transition-colors">Home</a>
+                <a href="#about" class="hover:text-brandGold transition-colors">About Us</a>
+                <a href="#indexing" class="hover:text-brandGold transition-colors">Indexing</a>
+                <a href="#services" class="hover:text-brandGold transition-colors">Our Services</a>
+                <a href="#contact" class="hover:text-brandGold transition-colors">Contact</a>
+            </nav>
+
+            <div class="hidden md:block">
+                <a href="#contact" class="bg-brandDarkBlue text-white text-sm font-bold px-6 py-3 rounded-md hover:bg-brandGold hover:text-brandDarkBlue transition-all duration-300 shadow">
+                    Submit Article <i class="fas fa-paper-plane ml-2"></i>
+                </a>
+            </div>
+
+            <button id="mobile-menu-btn" class="md:hidden text-brandDarkBlue focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden bg-white border-t border-gray-200 px-4 py-4 space-y-3 md:hidden">
+            <a href="#home" class="block text-brandDarkBlue font-medium hover:text-brandGold">Home</a>
+            <a href="#about" class="block text-brandDarkBlue font-medium hover:text-brandGold">About Us</a>
+            <a href="#indexing" class="block text-brandDarkBlue font-medium hover:text-brandGold">Indexing</a>
+            <a href="#services" class="block text-brandDarkBlue font-medium hover:text-brandGold">Our Services</a>
+            <a href="#contact" class="block text-brandDarkBlue font-medium hover:text-brandGold">Contact</a>
+            <a href="#contact" class="block text-center bg-brandDarkBlue text-white font-bold py-2 rounded-md">Submit Article</a>
+        </div>
+    </header>
+
+    <section id="home" class="relative bg-gradient-to-r class bg-brandDarkBlue text-white py-20 lg:py-32 overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#d4af37_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="text-brandGold font-bold uppercase tracking-widest text-xs px-3 py-1 bg-white/5 rounded-full inline-block mb-4 border border-brandGold/20">Premier Publication Consultant</span>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6">
+                    Publish Your Articles Faster with Our <span class="text-brandGold">Expert Services</span>
+                </h1>
+                <p class="text-gray-300 text-lg mb-8 leading-relaxed">
+                    ResearchLift Services stands as the premier choice for publishing and consultation services, specializing in scholarly articles for prestigious research databases like SCOPUS, Web of Science, PubMed, and Google Scholar.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#services" class="bg-brandGold text-brandDarkBlue font-bold px-8 py-4 rounded-md hover:bg-white transition-all duration-300 shadow-lg">Explore Services</a>
+                    <a href="#contact" class="border-2 border-white/40 text-white font-bold px-8 py-4 rounded-md hover:bg-white/10 transition-all duration-300">Get Free Consultation</a>
+                </div>
+            </div>
+            <div class="bg-white/5 backdrop-blur-sm p-8 rounded-xl border border-white/10 grid grid-cols-2 gap-6">
+                <div class="p-6 bg-brandNavBlue/50 rounded-lg text-center border border-white/5">
+                    <h3 class="text-3xl font-bold text-brandGold mb-2">10,000+</h3>
+                    <p class="text-gray-400 text-sm">Satisfied Authors</p>
+                </div>
+                <div class="p-6 bg-brandNavBlue/50 rounded-lg text-center border border-white/5">
+                    <h3 class="text-3xl font-bold text-brandGold mb-2">150+</h3>
+                    <p class="text-gray-400 text-sm">Countries Reached</p>
+                </div>
+                <div class="p-6 bg-brandNavBlue/50 rounded-lg text-center border border-white/5">
+                    <h3 class="text-3xl font-bold text-brandGold mb-2">8+ Yrs</h3>
+                    <p class="text-gray-400 text-sm">Academic Expertise</p>
+                </div>
+                <div class="p-6 bg-brandNavBlue/50 rounded-lg text-center border border-white/5">
+                    <h3 class="text-3xl font-bold text-brandGold mb-2">100%</h3>
+                    <p class="text-gray-400 text-sm">End-to-End Support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="indexing" class="bg-gray-100 py-10 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-xs uppercase tracking-widest text-gray-500 font-bold mb-6">Explore Wide Array of Premium Indexed Target Journals</p>
+            <div class="flex flex-wrap justify-center items-center gap-6 md:gap-12">
+                <span class="bg-white px-5 py-3 rounded shadow-sm text-sm font-bold text-brandDarkBlue border-l-4 border-brandGold">SCOPUS Indexed</span>
+                <span class="bg-white px-5 py-3 rounded shadow-sm text-sm font-bold text-brandDarkBlue border-l-4 border-brandGold">Web of Science</span>
+                <span class="bg-white px-5 py-3 rounded shadow-sm text-sm font-bold text-brandDarkBlue border-l-4 border-brandGold">PubMed</span>
+                <span class="bg-white px-5 py-3 rounded shadow-sm text-sm font-bold text-brandDarkBlue border-l-4 border-brandGold">Google Scholar</span>
+                <span class="bg-white px-5 py-3 rounded shadow-sm text-sm font-bold text-brandDarkBlue border-l-4 border-brandGold">ABDC Indexed</span>
+                <span class="bg-white px-5 py-3 rounded shadow-sm text-sm font-bold text-brandDarkBlue border-l-4 border-brandGold">UGC Care</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-brandDarkBlue sm:text-4xl">Discover ResearchLift</h2>
+                <div class="w-16 h-1 bg-brandGold mx-auto mt-4"></div>
+            </div>
+            
+            <div class="prose max-w-none text-gray-600 space-y-6 text-base leading-relaxed">
+                <p>
+                    <strong>ResearchLift</strong> stands as a leading authority in scholarly publishing, serving authors and researchers globally since its establishment. Partnering with renowned research database journals like SCOPUS by Elsevier, Web of Science, UGC India, Google Scholar, PubMed, DOAJ, ABDC, and SJR, we cater to diverse fields of scholarly engagement.
+                </p>
+                <p>
+                    Our services range from open access to closed access publications, accommodating both free and paid options. With a track record of over 10,000 satisfied customers across 150+ countries, ResearchLift ensures unparalleled support and accessibility. 
+                </p>
+                <p>
+                    We provide authors, including researchers, Ph.D. scholars, lecturers, professors, scientists, institutional heads, and corporate professionals, with access to our comprehensive citation and reference search database. Upholding authenticity, assurance, and a customer-centric approach, we prioritize a swift publication process, empowering authors to achieve their academic goals with confidence.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
+                <div class="p-8 bg-gray-50 rounded-xl border-l-4 border-brandDarkBlue shadow-sm">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <i class="fas fa-eye text-brandGold text-2xl"></i>
+                        <h3 class="text-xl font-bold text-brandDarkBlue">Our Vision</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        At ResearchLift, we aim to expand our global network to embrace authors from diverse backgrounds, transcending language and geographical barriers. Our goal is to facilitate the publication of their articles in indexed journals, establishing ourselves as the world's most trusted article publisher.
+                    </p>
+                </div>
+                <div class="p-8 bg-gray-50 rounded-xl border-l-4 border-brandGold shadow-sm">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <i class="fas fa-bullseye text-brandDarkBlue text-2xl"></i>
+                        <h3 class="text-xl font-bold text-brandDarkBlue">Our Mission</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        We are dedicated to equipping authors with the necessary resources and analytical tools to publish their articles in prestigious, indexed journals. Our mission is to help researchers meet the highest standards and achieve international recognition.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-20 bg-gray-50 border-t border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-16">
+                <span class="text-brandGold font-bold tracking-widest text-xs uppercase">From Articles, Publications to Books</span>
+                <h2 class="text-3xl font-extrabold text-brandDarkBlue sm:text-4xl mt-2">We Make Your Research Shine!</h2>
+                <div class="w-16 h-1 bg-brandGold mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-md p-8 border border-gray-100 flex flex-col justify-between hover:scale-105 transition-transform duration-300">
+                    <div>
+                        <div class="w-12 h-12 bg-brandDarkBlue text-brandGold rounded-lg flex items-center justify-center text-xl font-bold mb-6">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brandDarkBlue mb-4">Research Publication Guidance</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                            Comprehensive ranges of publication and consultation services for articles indexed in top-tier databases such as Scopus, Web of Science, PubMed, and Google Scholar. Complete assistance with open-access double-blind peer-reviewed platforms.
+                        </p>
+                    </div>
+                    <a href="#contact" class="text-brandGold font-bold text-sm inline-flex items-center hover:text-brandDarkBlue">Learn More <i class="fas fa-arrow-right ml-2"></i></a>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md p-8 border border-gray-100 flex flex-col justify-between hover:scale-105 transition-transform duration-300">
+                    <div>
+                        <div class="w-12 h-12 bg-brandDarkBlue text-brandGold rounded-lg flex items-center justify-center text-xl font-bold mb-6">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brandDarkBlue mb-4">Book & Chapter Publication</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                            Turn your writing into a professionally published book or e-book chapter. We handle manuscript evaluation, professional editing, custom cover designs, allocation of dynamic ISBN codes, and international distribution configurations.
+                        </p>
+                    </div>
+                    <a href="#contact" class="text-brandGold font-bold text-sm inline-flex items-center hover:text-brandDarkBlue">Learn More <i class="fas fa-arrow-right ml-2"></i></a>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md p-8 border border-gray-100 flex flex-col justify-between hover:scale-105 transition-transform duration-300">
+                    <div>
+                        <div class="w-12 h-12 bg-brandDarkBlue text-brandGold rounded-lg flex items-center justify-center text-xl font-bold mb-6">
+                            <i class="fas fa-pen-nib"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brandDarkBlue mb-4">Article & Book Writing Support</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                            We provide ethical research writing support, technical data arrangement, and high-caliber ghostwriting metrics, guaranteeing transparency where the ghostwriter's name completely stays off the finalized listings.
+                        </p>
+                    </div>
+                    <a href="#contact" class="text-brandGold font-bold text-sm inline-flex items-center hover:text-brandDarkBlue">Learn More <i class="fas fa-arrow-right ml-2"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-brandDarkBlue sm:text-4xl">Reasons to Work With Us</h2>
+                <div class="w-16 h-1 bg-brandGold mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="p-6 bg-gray-50 rounded-lg text-center">
+                    <i class="fas fa-check-circle text-brandGold text-3xl mb-4"></i>
+                    <h4 class="font-bold text-brandDarkBlue mb-2">High Quality Editing</h4>
+                    <p class="text-xs text-gray-500">Perfected formatting structures before target domain submission routing workflows.</p>
+                </div>
+                <div class="p-6 bg-gray-50 rounded-lg text-center">
+                    <i class="fas fa-bolt text-brandGold text-3xl mb-4"></i>
+                    <h4 class="font-bold text-brandDarkBlue mb-2">Fast Track Publication</h4>
+                    <p class="text-xs text-gray-500">Expedited schedules keeping data evaluation structures fast and dependable.</p>
+                </div>
+                <div class="p-6 bg-gray-50 rounded-lg text-center">
+                    <i class="fas fa-shield-alt text-brandGold text-3xl mb-4"></i>
+                    <h4 class="font-bold text-brandDarkBlue mb-2">Guaranteed Acceptance</h4>
+                    <p class="text-xs text-gray-500">Strategic alignments following database-compliant standard criteria maps perfectly.</p>
+                </div>
+                <div class="p-6 bg-gray-50 rounded-lg text-center">
+                    <i class="fas fa-headset text-brandGold text-3xl mb-4"></i>
+                    <h4 class="font-bold text-brandDarkBlue mb-2">End-to-End Support</h4>
+                    <p class="text-xs text-gray-500">Continuous post-publication assistance operational workflows 24 hours a day.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-gray-900 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-12">
+            
+            <div class="flex flex-col justify-between">
+                <div>
+                    <h2 class="text-3xl font-extrabold text-white sm:text-4xl mb-4">Get In Touch With Our Specialists</h2>
+                    <p class="text-gray-400 mb-8 text-sm leading-relaxed">
+                        Whether you have questions regarding database indexes or need instant manuscript clearance support, simply submit your inquiry info. Our specialized verification panel is here to assist 24/7.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 bg-brandDarkBlue text-brandGold rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-semibold text-gray-300">Official Email Access</h5>
+                                <p class="text-gray-400 text-sm">info@researchlift.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 bg-brandDarkBlue text-brandGold rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-semibold text-gray-300">Phone Helpline Contact</h5>
+                                <p class="text-gray-400 text-sm">+91 9351916190</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 bg-brandDarkBlue text-brandGold rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-semibold text-gray-300">Headquarters Hub Location</h5>
+                                <p class="text-gray-400 text-sm">India Hub Facility Operations</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12 pt-6 border-t border-gray-800 text-xs text-gray-500">
+                    * Quick Turnaround Warning: High volumes processing might trigger 1-2 hour delay intervals.
+                </div>
+            </div>
+
+            <div class="bg-white text-gray-800 p-8 rounded-xl shadow-2xl">
+                <h3 class="text-xl font-bold text-brandDarkBlue mb-6">Submit Inquiry / Manuscript Details</h3>
+                <form action="#" method="POST" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Full Name *</label>
+                        <input type="text" required class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-brandDarkBlue" placeholder="Dr. / Prof. / Scholar Name">
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Email Address *</label>
+                            <input type="email" required class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-brandDarkBlue" placeholder="name@university.com">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Phone Number *</label>
+                            <input type="tel" required class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-brandDarkBlue" placeholder="+91 0000000000">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Target Index Base</label>
+                        <select class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-brandDarkBlue bg-white">
+                            <option>Scopus Indexed Journal</option>
+                            <option>Web of Science (WoS)</option>
+                            <option>PubMed</option>
+                            <option>Google Scholar / ABDC</option>
+                            <option>Book/Chapter Publication</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Message / Abstract Details *</label>
+                        <textarea required rows="4" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-brandDarkBlue" placeholder="Paste your research abstract or detailed publication specifications here..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-brandDarkBlue hover:bg-brandGold text-white hover:text-brandDarkBlue font-bold py-3 px-4 rounded transition-all duration-300 uppercase tracking-wider text-xs">
+                        Transmit Manuscript Request <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-brandNavBlue text-gray-400 text-sm py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+            <div class="space-y-4">
+                <h4 class="text-white font-bold text-md border-b-2 border-brandGold pb-2 inline-block">ResearchLift</h4>
+                <p class="text-xs leading-relaxed text-gray-400">
+                    Your trusted elite academic partner providing end-to-end global metrics growth solutions across indexed targets safely.
+                </p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold text-md border-b-2 border-brandGold pb-2 inline-block mb-4">Key Directory Links</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="#about" class="hover:text-white transition-colors">Guidance & Support Network</a></li>
+                    <li><a href="#services" class="hover:text-white transition-colors">Core Consultation Services</a></li>
+                    <li><a href="#indexing" class="hover:text-white transition-colors">Target Journal Index Listing</a></li>
+                    <li><a href="#contact" class="hover:text-white transition-colors">Author Submission Portal</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold text-md border-b-2 border-brandGold pb-2 inline-block mb-4">Policy Frameworks</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="#" class="hover:text-white transition-colors">Privacy and Confidentiality Standards</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Terms of Operations & Service Matrix</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Refund & Evaluation Policies</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold text-md border-b-2 border-brandGold pb-2 inline-block mb-4">Social Approach Access</h4>
+                <div class="flex space-x-3 text-lg">
+                    <a href="#" class="hover:text-brandGold text-gray-500"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="hover:text-brandGold text-gray-500"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="hover:text-brandGold text-gray-500"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="hover:text-brandGold text-gray-500"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-6 border-t border-gray-800 text-center text-xs text-gray-500 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p>© 2026 ResearchLift Global Publications. All Rights Protected Universally.</p>
+            <p class="text-[10px]">Designed natively mapping layout profiles with premium optimizations.</p>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+        
+        // Auto close drawer when anchor link selected
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+    </script>
 </body>
 </html>
-
